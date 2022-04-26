@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+	<section class="home-banner">
+		<div class="home-banner-background"></div>
+		<div class="home-banner-square">
+			<h1>Bienvenue sur mon site Portfolio !</h1>
+			<p class="home-banner-text">Je suis VIAL Mathis, étudiant en deuxième année de BTS SIO option SLAM au CFP Charmilles (38)</p>
+		</div>
+		<btn class="home-banner-btn"><a href="#banner-profil" class="home-banner-btn-a">En savoir plus</a></btn>
+	</section>
+    <div id="banner-profil"></div>
+	<section class="profil" id="profil">
+        <h2>Qui suis-je ?</h2>
+        <div class="profil-square">
+            <div class="profil-img">
+                <img src="https://us.123rf.com/450wm/triken/triken1608/triken160800029/61320775-homme-photo-de-profil-avatar-avatar-de-l-utilisateur-par-d%C3%A9faut-invit%C3%A9-avatar-simplement-la-t%C3%AAte-hum.jpg?ver=6"></img>
+            </div>
+            <div class="profil-text">
+                <p>
+                    Actuellement en deuxième année de BTS (Brevet de Technicien Supérieur) SIO (Services informatiques aux Organisations)
+                    option SLAM (Solutions Logicielles et Applications Métier), je suis alternant dans l’entreprise <a class="profil-a" target="_blank" href="https://www.hydrao.com/"><b>Hydrao</b></a>.</br>
+                    Je suis passionné par l'informatique depuis mon plus jeune âge, c'est pourquoi j'ai fait un BAC STI2D (Sciences et Technologies de l'Industrie et du Développement Durable)
+                    option SIN (Système d’Information et Numérique) au Lycée Ferdinand Buisson à Voiron (38).</br>
+                    Au cours de ces années de Lycée, je me suis conforté dans mon choix avec une attirance particulière pour le développement, ce qui explique mon choix pour l’option SLAM.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bts-sio">
+        <h2>Le BTS SIO : C'est quoi ?</h2>
+        <div class="bts-sio-quoi">
+            <p>
+                Le <b>BTS SIO</b> (Services Informatiques aux Organisations) est un diplôme reconnu par l’état de <b>Niveau Bac+2</b> qui se déroule
+                pendant 2 ans en formation <b>initiale</b> ou en <b>alternance</b>. Il remplace depuis septembre 2011 l’ancien BTS IG (informatique
+                de Gestion). <b>Deux options</b> sont proposées dans ce cursus à partir de la <b>seconde année</b> :
+            </p>
+        </div>
+        <div class="bts-sio-options">
+            <div class="card card-slam">
+                <div class="card-side front">
+                    <img class="front-cards-img" src="https://www.iscb.fr/img/couverture-sio-mobile.jpg"></img>
+                    <h3>SLAM</h3>
+                    <h4>Solutions Logicielles Applications Métier</h4>
+                </div>
+                <div class="card-side back">
+                    <img class="back-cards-img" src="https://www.esiee-it.fr/sites/default/files/styles/1366x650/public/2020-10/esiee-it-formation-informatique.jpg?itok=Gwnauug0"></img>
+                    <p>
+                        L'élève participe à la conception, au développement, ainsi qu'au déploiement et à la maintenance
+                        des composants logiciels d'une solution applicative. Il acquiert ainsi des compétences en conception
+                        et développement d'une solution applicative, en maintenance de celle-ci, mais aussi en bases de données
+                        et en gestion des données numériques.
+                    </p>
+                </div>
+            </div>
+            <div class="card card-sisr">
+                <div class="card-side front">
+                    <img class="front-cards-img" src="https://www.egalitejeunesse.com/wp-content/uploads/2021/07/bts-sio-sisr-2.jpg"></img>
+                    <h3>SISR</h3>
+                    <h4>Solutions d'Infrastructures, Systèmes et Réseaux</h4>
+                </div>
+                <div class="card-side back">
+                    <img class="back-cards-img" src="https://www.cidj.com/sites/default/files/styles/og_image/public/2019-10/BTS-SIO.jpg?itok=3FQYh7jB"></img>
+                    <p>
+                        L'élève participe à l'administration des systèmes et du réseau, il est capable de modifier ou 
+                        d'adapter les solutions d'infrastructure ainsi que la qualité de service des équipements du réseaux.
+                        Il acquiert ainsi les compétences pour concevoir une solution d'infrastructure réseau, l'installer, 
+                        la tester et la déployer. L'élève apprend aussi à administrer et superviser ce réseau.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Epreuve E4{% endblock %}
+
+{% block body %}
+	<section class="tableau-epreuve-e4">
+		<table>
+            {% for category in category %}
+				<th>
+					{{ category.name }}
+				</th>
+        	{% endfor %}
+		</table>
+	</section>
+{% endblock %}

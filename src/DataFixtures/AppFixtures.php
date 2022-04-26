@@ -27,7 +27,7 @@ class AppFixtures extends Fixture
         $user->setUsername('Serpa');
         $password = $this->hasher->hashPassword($user, 'mv281202');
         $user->setPassword($password);
-        $user->setRoles(['ROLES_ADMIN']);
+        $user->setRoles(['ROLE_ADMIN']);
         $user->setEmail('mathis.vial@bbox.fr');
 
         $manager->persist($user);

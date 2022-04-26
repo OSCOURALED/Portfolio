@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<section class="category-create container mt-4">
+		<h1>Page Liste des catégories</h1>
+		<div class="row mt-4">
+			<table>
+				<thead>
+					<th>Titre</th>
+				</thead>
+				<tbody>
+					{% for name in categories %}
+						<tr>
+							<td>{{ categories.name }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
+{% endblock %}

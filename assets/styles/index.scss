@@ -1,0 +1,181 @@
+.home-banner {
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 150px;
+}
+
+.home-banner-background {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 85%;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    top: 0;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.home-banner-square {
+    padding: 2em;
+    border: 2px solid black;
+    border-radius: 10px px;
+    text-align: center;
+    color: #fff;
+    animation: apparition 3s;
+    box-shadow: 0px 0.375em 1em;
+}
+
+.home-banner-btn-a {
+    color: black;
+}
+
+.home-banner-btn {
+    border-radius: 50px;
+    font-weight: 600;
+    padding: .625em 1.25em;
+    box-shadow: 0px 0.375em 1em;
+    margin-top: 30px;
+    transition: all .4s ease-in-out;
+    animation: apparition 3s;
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.home-banner-btn:hover {
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    transform: scale(1.2);
+    background-position: 100% 0;
+    box-shadow: none;
+}
+
+.home-banner-text {
+    font-size: 1.25em;
+}
+
+div#banner-profil {
+    transition: all 2s ease-in-out;
+}
+
+.profil {
+    margin-top: 110px;
+}
+
+.profil-a {
+    text-decoration: underline;
+}
+
+.profil-square {
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    margin-left: 150px;
+    margin-right: 150px;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #5066d0 0%, #c35ebc 46%, #ffd586 100%);
+}
+
+.profil-img {
+    margin: 20px;
+}
+
+.profil-text {
+    margin: 80px;
+}
+
+.bts-sio-options {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card {
+    perspective: 150rem;
+    position: relative;
+    height: 40rem;
+    width: 400px;
+    margin: 2rem;
+    box-shadow: none;
+    background: none;
+}
+
+.card-side {
+    height: 30rem;
+    border-radius: 15px;
+    transition: all 0.8s ease;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    padding: 2rem;
+    color: white
+}
+
+.card-side.back {
+    transform: rotateY(-180deg);
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+.card-side.front {
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+
+.card:hover .card-side.front {
+    transform: rotateY(180deg);
+}
+
+.card:hover .card-side.back {
+    transform: rotateY(0deg);
+}
+
+.front-cards-img {
+    height: 40vh;
+    width: 100%;
+}
+
+.back-cards-img {
+    height: 3 0vh;
+    width: 100%;
+}
+
+.card-side.back {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-side.front {
+    text-align: center;
+}
+
+.bts-sio-quoi {
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}

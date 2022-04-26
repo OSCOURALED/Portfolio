@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page de Connexion{% endblock %}
+
+{% block body %}
+	{% if error %}
+		{{ error.messageKey | trans(error.messageData, 'security') }}
+	{% endif %}
+	<section class="login">
+		<div class="div-form">
+			<form action="{{ path('login') }}" method="post">
+				<div>
+					<label for="_email"></label>
+					<input type="email" id="username" name="_username" placeholder="Adresse E-Mail">
+				</div>
+				<div>
+					<label for="_password"></label>
+					<input type="password" id="password" name="_password" placeholder="Mot de passe">
+				</div>
+				<button class="form-button" type="submit">Se connecter</button>
+			</form>
+		</div>
+	</section>
+{% endblock %}

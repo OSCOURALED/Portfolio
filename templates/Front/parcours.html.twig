@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon parcours
+{% endblock %}
+
+{% block body %}
+	<section class="home-banner">
+		<div class="home-banner-background"></div>
+		<div class="home-banner-square">
+			<h1>Mon parcours</h1>
+		</div>
+	</section>
+
+    <section class="formations">
+        <h2>Mes formations</h2>
+        <div class="cards-formations">
+            <div class="bac">
+                <img class="formations-img" src="data:image/webp;base64,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"></img>
+                <h3>Bac STI2D option SIN (Sciences de l'Informatique et du Numérique</h3>
+                <h4>2018 - 2020</h4>
+                <p>Lycée Ferdinand Buisson, Voiron (38)</p>
+            </div>
+            <div class="bia">
+                <img class="formations-img" src="https://assets.change.org/photos/1/dc/oq/tsDcoQFksODAYYc-800x450-noPad.jpg?1561055606"></img>
+                <h3>BIA (Brever d'Initiation à l'Aéronautique)</h3>
+                <h4>2018 - 2019</h4>
+                <p>Lycée Ferdinand Buisson, Voiron (38)</p>
+            </div>
+            <div class="bts">
+                <img class="formations-img" src="https://www.btsinfo.fr/wp-content/uploads/2017/10/logo-certa.png"></img>
+                <h3>BTS SIO option SLAM (Solutions Logicielles et Applications Métier</h3>
+                <h4>2020 - 2022</h4>
+                <p>CFP Charmilles, Saint-Martin-D'Hères (38)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="exps">
+        <h2>Mes expériences professionnelles</h2>
+        <div class="div-exps">
+            <p>Création du site web de campagne électorale à la demande de la maire réélue en 2020</p>
+            <p>Développement du site web B2C de l'entreprise HYDRAO au cours de mon alternance</p>
+        </div>
+    </section>
+
+    <section class="cv">
+        <h2>Mon CV</h2>
+        <div class="cv-btn">
+            <btn class="home-banner-btn"><a target="_blank" href="https://cvdesignr.com/p/618103b4f131a" class="home-banner-btn-a">Voir mon CV</a></btn>
+        </div>
+    </section>
+
+{% endblock %}

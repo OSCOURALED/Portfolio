@@ -24,13 +24,9 @@ class Skills
     #[ORM\Column(type: 'date', nullable: true)]
     private $DateFin;
 
-    #[ORM\OneToMany(mappedBy: 'skills', targetEntity: Category::class)]
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'competences')]
+    #[ORM\JoinColumn(nullable: false)]
     private $category;
-
-    public function __construct()
-    {
-        $this->category = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -72,33 +68,15 @@ class Skills
 
         return $this;
     }
-    
-    /**
-     * @return Collection<int, Category>
-     */
-    public function getCategory(): Collection
+
+    public function getCategory(): ?Category
     {
         return $this->category;
     }
 
-    public function addCategory(Category $category): self
+    public function setCategory(?Category $category): self
     {
-        if (!$this->category->contains($category)) {
-            $this->category[] = $category;
-            $category->setSkills($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCategory(Category $category): self
-    {
-        if ($this->category->removeElement($category)) {
-            // set the owning side to null (unless already changed)
-            if ($category->getSkills() === $this) {
-                $category->setSkills(null);
-            }
-        }
+        $this->category = $category;
 
         return $this;
     }

@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<section class="skills-list">
+    <div class="skills-list-div">
+        {% for skill in skills %}
+            <div class="skill-list">
+                <p>{{ skill.titre }}
+                {{ skill.DateDebut|date("d/m/Y") }}
+                {{ skill.DateFin|date("d/m/Y") }}
+                {{ skill.category.name }}</p>
+
+                <a class="edit-skill" href="{{ path('edit_skills', {'id': skill.id}) }}">Modifier</a>
+                <form method="POST" action="{{ path('delete_skills', {'id': skill.id}) }}" onsubmit="return confirm('La supression a été effectué !')">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ skill.id) }}">
+                    <button>supprimer</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
