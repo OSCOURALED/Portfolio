@@ -18,6 +18,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            security: false
             form_login: 
                 check_path: login
             logout: 
