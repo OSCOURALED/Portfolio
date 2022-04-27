@@ -1,15 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Epreuve E4{% endblock %}
+{% block title %}Epreuve E4
+{% endblock %}
 
 {% block body %}
-	<section class="tableau-epreuve-e4">
-		<table>
-            {% for category in category %}
-				<th>
-					{{ category.name }}
-				</th>
-        	{% endfor %}
-		</table>
+	<section class="tableau-e4">
+		<div class="goals">
+			<span>Tableau des Compétences</span>
+			<div class="table-competence">
+				<table class="width-100">
+					<tbody>
+						<tr class="txt-center upper blue">
+							<td class="days__item">
+								<strong>Compétence</strong>
+							</td>
+							<td class="days__item width-15">
+								<strong>date de début</strong>
+							</td>
+							<td class="days__item width-15">
+								<strong>date de fin</strong>
+							</td>
+							<td class="days__item">
+								<strong>Catégorie</strong>
+							</td>
+						</tr>
+						{% for skill in skills %}
+							<tr class="txt-center white fs-13">
+								<td class="days__item">{{ skill.Titre }}</td>
+								<td class="days__item width-15">{{ skill.DateDebut|date("d/m/Y") }}</td>
+								<td class=" days__item width-15">{{ skill.DateFin|date("d/m/Y") }}</td>
+								<td class="days__item">{{ skill.category.name }}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</section>
 {% endblock %}

@@ -1,21 +1,23 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-	<section class="category-create container mt-4">
-		<h1>Page Liste des catégories</h1>
-		<div class="row mt-4">
-			<table>
-				<thead>
-					<th>Titre</th>
-				</thead>
-				<tbody>
-					{% for name in categories %}
-						<tr>
-							<td>{{ categories.name }}</td>
-						</tr>
-					{% endfor %}
-				</tbody>
-			</table>
+	<section class="categories-list">
+		<div class="categories-list-div">
+			<button class="btn-category">
+				<a href="/admin/categories/create">Créer une catégorie</a>
+			</button>
+			{% for categorie in categories %}
+				<div class="categorie-list">
+					{{ categorie.name }}
+
+					<a class="edit-category" href="{{ path('admin.edit.categories', {'id': categorie.id}) }}">Modifier</a>
+					<form method="POST" action="{{ path('admin.delete.categories', {'id': categorie.id}) }}" onsubmit="return confirm('La supression a été effectuée !')">
+						<input type="hidden" name="_method" value="DELETE">
+						<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ categorie.id) }}">
+						<button class="btn-category">supprimer</button>
+					</form>
+				</div>
+			{% endfor %}
 		</div>
 	</section>
 {% endblock %}

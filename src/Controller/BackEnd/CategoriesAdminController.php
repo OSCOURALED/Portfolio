@@ -24,7 +24,7 @@ class CategoriesAdminController extends AbstractController
 
     /**
      * Page admin des catégories
-     *
+     * 
      * @Route("/list", name="admin.category.show")
      * @return Response
      */
@@ -54,11 +54,59 @@ class CategoriesAdminController extends AbstractController
 
             $this->em->persist($categorie);
             $this->em->flush();
+
+            return $this->redirectToRoute('admin.category.show');
         }
 
         return $this->render("Backend/CategoriesAdmin.html.twig", [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * Page de modification des catégories
+     * 
+     * @Route("/edit/{id}", name="admin.edit.categories")
+     * @return Response
+     */
+    public function Editcategories($id, Request $request) : Response
+    {
+        $categories = $this->RepoCategory->find($id);
+        $form = $this->createForm(categoriesFormType::class, $categories);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $this->em->flush();
+            $this->addFlash('Success', 'La compétence a bien été modifié !');
+
+            return $this->redirectToRoute('admin.category.show');
+        }
+        return $this->render("Backend/categoriesEdit.html.twig", [
+            'form' => $form->createView(),
+            'categories' => $categories
+        ]);
+    }
+
+
+    /**
+     * Page de suppression des catégories
+     *
+     * @Route("/delete/{id}", name="admin.delete.categories")
+     * @param Request $request
+     * @param integer $id
+     * @return Response
+     */
+    public function Deletecategories(Request $request, Category $category,int $id): Response
+    {
+        if ($this->isCsrfTokenValid("delete" . $category->getId(), $request->get("_token")))
+        {
+            $this->em->remove($category);
+            $this->em->flush();
+            $this->addFlash("Success", "La compétence à été supprimée avec succès");
+        };
+
+        return $this->redirectToRoute("admin.category.show");
     }
 
 }

@@ -9,13 +9,17 @@
 					<a href="/">Accueil</a>
 					<a href="/epreuve">Epreuve E4</a>
 					<a href="/parcours">Mon parcours</a>
-					<div class="admin-menu">
-						<a>Admin</a>
-						<div class="admin-menu-dropdown">
-							<a href="/admin/skills/list">Compétences</a>
-							<a href="/admin/categories/list">Catégories</a>
+					{% if is_granted('ROLE_ADMIN') %}
+						<div class="admin-menu">
+							<a>Admin</a>
+							<div class="admin-menu-dropdown">
+								<a href="/admin/skills/list">Compétences</a>
+								<a href="{{ path('admin.category.show') }}">Catégories</a>
+							</div>
 						</div>
-					</div>
+					{% else %}
+					<a href="/login">Connexion</a>
+					{% endif %}
 				</li>
 			</ul>
 		</div>

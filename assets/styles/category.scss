@@ -42,3 +42,58 @@ section.category-create {
     cursor: pointer;
     transition: all 0.4s ease;
 }
+
+.categories-list {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    min-height: 500px;
+}
+
+.categories-list-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.categorie-list {
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.edit-category {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.btn-category {
+    border-radius: 50px;
+    font-weight: 600;
+    padding: .625em 1.25em;
+    box-shadow: 0px 0.375em 1em;
+    transition: all .4s ease-in-out;
+    animation: apparition 3s;
+    background-color: transparent;
+}
+
+.create-btn-categorie:hover {
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    transform: scale(1.2);
+    background-position: 100% 0;
+    box-shadow: none;
+}
+
+.edit-categorie:hover {
+    color: white;
+    transition: all .4s;
+}
+
+.edit-categorie {
+    transition: all .4s;
+}

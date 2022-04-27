@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Page d'édition des Catégories{% endblock %}
+
+{% block body %}
+    <section class="category-create">
+        <div class="form-category-create">
+            {{ form_start(form, {'attr': {'class': 'form', 'id': 'formID'} }) }}
+                {{ form_widget(form.Name, {'attr': {'placeholder': 'Nom de la catégorie'}})}}
+                {{ form_row(form.save, {'attr': {'class': 'btn-category-create'} }) }}
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}

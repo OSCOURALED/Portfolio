@@ -22,7 +22,7 @@ class SkillsAdminController extends AbstractController
         $this->em = $em;
         $this->RepoSkill = $RepoSkill;
     }
-
+    
     /**
      * Page admin des compétences
      *
@@ -55,6 +55,8 @@ class SkillsAdminController extends AbstractController
 
             $this->em->persist($skill);
             $this->em->flush();
+
+            return $this->redirectToRoute('admin.skills.show');
         }
 
         return $this->render("Backend/SkillsAdmin.html.twig", [
@@ -65,13 +67,13 @@ class SkillsAdminController extends AbstractController
     /**
      * Page de modification des compétences
      * 
-     * @Route("/edit/{id}", name="edit_skills")
+     * @Route("/edit/{id}", name="admin.edit.skills")
      * @return Response
      */
-    public function editSkills($id, Request $request) : Response
+    public function EditSkills($id, Request $request) : Response
     {
-        $Skills = $this->repoSkill->find($id);
-        $form = $this->createForm(SkillType::class, $Skills);
+        $Skills = $this->RepoSkill->find($id);
+        $form = $this->createForm(SkillsFormType::class, $Skills);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
@@ -79,11 +81,11 @@ class SkillsAdminController extends AbstractController
             $this->em->flush();
             $this->addFlash('Success', 'La compétence a bien été modifié !');
 
-            return $this->redirectToRoute('app_admin');
+            return $this->redirectToRoute('admin.skills.show');
         }
-        return $this->render("admin/Skill/EditSkill.html.twig", [
+        return $this->render("Backend/SkillsEdit.html.twig", [
             'form' => $form->createView(),
-            'Skills' => $Skills
+            'skills' => $Skills
         ]);
     }
 
@@ -91,7 +93,7 @@ class SkillsAdminController extends AbstractController
     /**
      * Page de suppression des compétences
      *
-     * @Route("/delete/{id}", name="delete_skills")
+     * @Route("/delete/{id}", name="admin.delete.skills")
      * @param Request $request
      * @param integer $id
      * @return Response

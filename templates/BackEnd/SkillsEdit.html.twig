@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Page d'édition des Compétences{% endblock %}
+{% block title %}Page d'édition des compétences{% endblock %}
 
 {% block body %}
 
@@ -12,6 +12,7 @@
 				{{ form_row(form.DateFin)}}
 				{{ form_widget(form.category) }}
 				{{ form_row(form.save, {'attr': {'class': 'btn-skill-create'} }) }}
+
 			{{ form_end(form) }}
 		</div>
 	</section>

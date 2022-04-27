@@ -1,9 +1,10 @@
 a:-webkit-any-link {
-    text-decoration: none;
+    text-decoration: unset;
+    color: unset;
 }
 
 a:-webkit-any-link:active {
-    color: none;
+    color: unset;
 }
 
 h1 {

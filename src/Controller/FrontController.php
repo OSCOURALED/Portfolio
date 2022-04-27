@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CategoryRepository;
 use App\Repository\SkillsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,10 +12,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class FrontController extends AbstractController
 {
 
-    public function __construct(EntityManagerInterface $em, SkillsRepository $RepoCategory)
+    public function __construct(EntityManagerInterface $em, CategoryRepository $RepoCategory, SkillsRepository $RepoSkills)
     {
         $this->em = $em;
         $this->RepoCategory = $RepoCategory;
+        $this->RepoSkills = $RepoSkills;
+
     }
 
     #[Route('/', name: 'app_front')]
@@ -36,15 +39,18 @@ class FrontController extends AbstractController
     /**
      * Tableau E4
      *
-     * @Route("/epreuve", name="admin.category.show")
+     * @Route("/epreuve", name="app.category.show")
      * @return Response
      */
     public function indexCategory(): Response
     {
         $categories = $this->RepoCategory->findAll();
+        $Skills = $this->RepoSkills->findAll();
 
-        return $this->render("Backend/Categories.html.twig", [
-            'categories' => $categories
+        return $this->render("Front/epreuve.html.twig", [
+            'categories' => $categories,
+            'skills' => $Skills
+            
         ]);
     }
 
