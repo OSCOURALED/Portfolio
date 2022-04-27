@@ -5,31 +5,31 @@
 
 {% block body %}
 	<section class="tableau-e4">
-		<div class="goals">
-			<span>Tableau des Compétences</span>
-			<div class="table-competence">
-				<table class="width-100">
+		<div class="epreuve-div">
+			<h2>Tableau des compétences</h2>
+			<div class="skills-tableau">
+				<table class="">
 					<tbody>
-						<tr class="txt-center upper blue">
-							<td class="days__item">
-								<strong>Compétence</strong>
+						<tr class="tr-tableau-e4">
+							<td class="">
+								<strong>Compétences</strong>
 							</td>
-							<td class="days__item width-15">
+							<td class="">
 								<strong>date de début</strong>
 							</td>
-							<td class="days__item width-15">
+							<td class="">
 								<strong>date de fin</strong>
 							</td>
-							<td class="days__item">
-								<strong>Catégorie</strong>
+							<td class="">
+								<strong>Catégories</strong>
 							</td>
 						</tr>
 						{% for skill in skills %}
-							<tr class="txt-center white fs-13">
-								<td class="days__item">{{ skill.Titre }}</td>
-								<td class="days__item width-15">{{ skill.DateDebut|date("d/m/Y") }}</td>
-								<td class=" days__item width-15">{{ skill.DateFin|date("d/m/Y") }}</td>
-								<td class="days__item">{{ skill.category.name }}</td>
+							<tr class="tr-tableau-e4">
+								<td class="">{{ skill.Titre }}</td>
+								<td class="">{{ skill.DateDebut|date("d/m/Y") }}</td>
+								<td class="">{{ skill.DateFin|date("d/m/Y") }}</td>
+								<td class="">{{ skill.category.name }}</td>
 							</tr>
 						{% endfor %}
 					</tbody>
