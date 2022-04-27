@@ -16,5 +16,9 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "engines": {
+        "node": "17.7.1",
+        "yarn": "1.22.17"
     }
 }
