@@ -31,7 +31,7 @@ class FrontController extends AbstractController
     #[Route('/parcours', name: 'parcours')]
     public function parcours(): Response
     {
-        return $this->render('front/parcours.html.twig', [
+        return $this->render('Front/parcours.html.twig', [
             'controller_name' => 'FrontController',
         ]);
     }
